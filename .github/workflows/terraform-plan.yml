@@ -12,16 +12,23 @@ jobs:
 plan:
 runs-on: ubuntu-latest
 steps:
-- uses: actions/checkout@v4
-- uses: hashicorp/setup-terraform@v3
-with:
-terraform_version: 1.7.5
-- name: Terraform Init
-run: terraform -chdir=envs/dev init
-- name: Terraform Validate
-run: terraform -chdir=envs/dev validate
-- name: Terraform Plan
-run: terraform -chdir=envs/dev plan -no-color
-env:
-TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-TF_VAR_ami_id: ${{ secrets.AMI_ID }}
+- name: Checkout
+uses: actions/checkout@v4
+
+
+  - name: Setup Terraform
+    uses: hashicorp/setup-terraform@v3
+    with:
+      terraform_version: '1.7.5'
+
+  - name: Terraform Init
+    run: terraform -chdir=envs/dev init
+
+  - name: Terraform Validate
+    run: terraform -chdir=envs/dev validate
+
+  - name: Terraform Plan
+    run: terraform -chdir=envs/dev plan -no-color
+    env:
+      TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+      TF_VAR_ami_id: ${{ secrets.AMI_ID }}
