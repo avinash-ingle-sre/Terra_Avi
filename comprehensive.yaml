@@ -1,0 +1,17 @@
+---
+# Base configs
+defaults: &base
+  timeout: !!int 30
+  retries: !!int 3
+
+# Services using all features
+api:
+  <<: *base
+  name: "api"
+  port: !!int 8080
+  script: |
+    #!/bin/bash
+    echo "Starting"
+  desc: >
+    API service that handles
+    backend operations.

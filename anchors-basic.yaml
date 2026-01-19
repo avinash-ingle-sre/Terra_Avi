@@ -1,0 +1,12 @@
+---
+# Define anchor
+config: &db
+  host: "localhost"
+  port: 5432
+
+# Use aliases
+dev:
+  database: *db
+
+prod:
+  database: *db

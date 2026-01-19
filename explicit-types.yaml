@@ -1,0 +1,12 @@
+---
+# Force string type
+version: !!str 1.2.3
+
+# Force number type
+port: !!int "8080"
+
+# Force boolean type
+enabled: !!bool "true"
+
+# Force null type
+optional: !!null

@@ -1,0 +1,13 @@
+common_errors:
+  - "Wrong indentation"
+  - "Missing colons"
+  - "Incorrect booleans"
+
+tools:
+  - yamllint
+  - python yaml module
+
+steps:
+  - "Run yamllint"
+  - "Fix errors"
+  - "Validate again"

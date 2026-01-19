@@ -1,0 +1,15 @@
+---
+# Resource anchor
+res: &resources
+  memory: "512Mi"
+  cpu: "500m"
+
+# Base anchor
+base: &container
+  image: "nginx"
+  resources: *resources
+
+# Use both anchors
+api:
+  <<: *container
+  name: "api"

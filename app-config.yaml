@@ -1,0 +1,7 @@
+application:
+  name: "WebApp"
+  version: "2.1.0"
+database:
+  host: "db.example.com"
+  port: 5432
+  ssl_enabled: true

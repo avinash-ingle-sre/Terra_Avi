@@ -1,0 +1,11 @@
+---
+# Base config
+base: &defaults
+  timeout: 30
+  retries: 3
+
+# Inherit and override
+api:
+  <<: *defaults
+  name: "api"
+  port: 8080

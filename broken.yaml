@@ -1,0 +1,11 @@
+app:
+  name: "MyApp"
+   version: 1.0.0
+
+database
+  host: localhost
+  port: 5432
+
+features:
+  ssl_enabled: True
+  debug_mode: Yes

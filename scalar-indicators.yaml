@@ -1,0 +1,14 @@
+---
+# Literal (keeps newlines)
+script: |
+  #!/bin/bash
+  echo "Starting"
+
+# Folded (joins lines)
+desc: >
+  This long text will be
+  folded into one line.
+
+# Strip (removes final newline)
+cmd: |-
+  echo "Hello"

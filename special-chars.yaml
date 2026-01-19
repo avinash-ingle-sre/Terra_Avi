@@ -1,0 +1,9 @@
+---
+messages:
+  warning: "Alert: System overload detected!"
+  info: 'Process completed at 2024-01-01 10:30:00'
+  json_like: '{"status": "ok", "count": 42}'
+  multiline_quoted: "
+    Line 1\n
+    Line 2\n
+    Line 3"

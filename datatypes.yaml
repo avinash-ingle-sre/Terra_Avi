@@ -1,0 +1,23 @@
+---
+# Numeric values
+integer: 42
+float: 3.14159
+scientific: 1.2e+3
+octal: 0o755
+hex: 0xFF
+
+# Boolean values
+active: true
+disabled: false
+yes_value: yes
+no_value: no
+
+# Null values
+empty1: null
+empty2: ~
+empty3:
+
+# String values
+unquoted: hello world
+single_quoted: 'special chars: @#$%'
+double_quoted: "escaped: \n\t\r"

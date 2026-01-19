@@ -1,0 +1,14 @@
+service:
+  name: "user-service"
+  version: 1.2.3
+  enabled: true
+
+features:
+  - "authentication"
+  - "user-profiles"
+  - "notifications"
+
+resources:
+  memory: "512Mi"
+  cpu: "250m"
+  storage: null
