@@ -1,0 +1,7 @@
+services:
+  app_0:
+    port: 8000
+  app_1:
+    port: 8001
+  app_2:
+    port: 8002

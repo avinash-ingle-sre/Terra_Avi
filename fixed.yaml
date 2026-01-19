@@ -1,12 +1,8 @@
 ---
 app:
   name: "MyApp"
-  version: 1.0.0
-
-database:
+  version: 1.0
+  enabled: true
+config:
   host: localhost
-  port: 5432
-
-features:
-  ssl_enabled: true
-  debug_mode: false
+command: "echo \"test\""

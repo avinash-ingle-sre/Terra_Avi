@@ -1,0 +1,9 @@
+---
+app:
+  name: "secure-app"
+  
+# Use environment variables for secrets
+database:
+  host: "localhost"
+  username: ""
+  # password: ""  # Never hardcode!

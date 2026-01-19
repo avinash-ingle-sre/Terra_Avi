@@ -1,0 +1,11 @@
+---
+# Small YAML bomb demo
+a: &anchor
+  - "data"
+  - "data"
+  
+b: &level1
+  - *anchor
+  - *anchor
+  
+result: *level1

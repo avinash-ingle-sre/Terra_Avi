@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "app": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "enabled": {"type": "boolean"}
+      },
+      "required": ["name"]
+    }
+  },
+  "required": ["app"]
+}
