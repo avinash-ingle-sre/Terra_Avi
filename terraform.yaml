@@ -1,0 +1,16 @@
+---
+project:
+  name: "myapp"
+  environment: "production"
+  region: "us-west-2"
+instances:
+  web:
+    count: 2
+    type: "t3.small"
+  db:
+    count: 1
+    type: "t3.medium"
+tags:
+  Environment: "production"
+  Project: "myapp"
+  Owner: "devops-team"

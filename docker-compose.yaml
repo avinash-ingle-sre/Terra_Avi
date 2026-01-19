@@ -1,0 +1,15 @@
+---
+version: "3.8"
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:80" 
+  api:
+    image: node:alpine
+    ports:
+      - "3000:3000"
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: myapp

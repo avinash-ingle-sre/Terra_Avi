@@ -1,0 +1,8 @@
+---
+app:
+  name: "${APP_NAME}"
+  replicas: ${REPLICAS}
+  resources:
+    memory: "${MEMORY_LIMIT}"
+    cpu: "${CPU_LIMIT}"
+  environment: "${ENV}"
