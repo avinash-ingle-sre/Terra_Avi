@@ -1,0 +1,7 @@
+app:
+  name: "MyApp"
+  version: 1.0  
+  enabled: true 
+config:
+  host: "localhost"
+  command: "echo test"
