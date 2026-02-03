@@ -1,7 +1,0 @@
-app:
-  name: "MyApp"
-   version: 1.0  # Wrong indentation
-  enabled: True # Wrong boolean
-config:
-host: localhost  # Tab instead of spaces
-command: echo "test"  # Unquoted special chars
