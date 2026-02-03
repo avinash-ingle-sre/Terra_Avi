@@ -1,13 +1,13 @@
 variable "bucket_name" {
-type = string
+  type = string
 }
 
 variable "versioning" {
-type = bool
-default = true
+  type    = bool
+  default = true
 }
 
 variable "tags" {
-type = map(string)
-default = {}
+  type    = map(string)
+  default = {}
 }

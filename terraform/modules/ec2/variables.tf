@@ -1,31 +1,31 @@
 variable "ami_id" {
-type = string
+  type = string
 }
 
 variable "instance_type" {
-type = string
-default = "t2.micro"
+  type    = string
+  default = "t2.micro"
 }
 
 variable "subnet_id" {
-type = string
+  type = string
 }
 
 variable "vpc_id" {
-type = string
+  type = string
 }
 
 variable "ssh_cidr" {
-type = string
-default = "0.0.0.0/0"
+  type    = string
+  default = "0.0.0.0/0"
 }
 
 variable "user_data" {
-type = string
-default = ""
+  type    = string
+  default = ""
 }
 
 variable "tags" {
-type = map(string)
-default = {}
+  type    = map(string)
+  default = {}
 }
