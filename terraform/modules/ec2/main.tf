@@ -1,51 +1,23 @@
-terraform {
-  required_providers {
-    aws = { source = "hashicorp/aws", version = "~> 5.0" }
-  }
-  required_version = ">= 1.5.0"
+# १. बँक अ‍ॅप सर्व्हर (Public Subnet मध्ये)
+resource "aws_instance" "app_server" {
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
+  subnet_id              = var.subnet_ids[0] # पहिल्या सबनेटचा वापर
+  vpc_security_group_ids = [var.app_sg_id]   # VPC मधून आलेला SG ID
+
+  tags = merge(var.tags, {
+    Name = "${var.env}-bank-app-server"
+  })
 }
 
-data "aws_vpc" "selected" {
-  id = var.vpc_id
-}
+# २. बँक इंटरनल सर्व्हर (दुसऱ्या Subnet मध्ये)
+resource "aws_instance" "internal_server" {
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
+  subnet_id              = var.subnet_ids[1]    # दुसऱ्या सबनेटचा वापर
+  vpc_security_group_ids = [var.internal_sg_id] # VPC मधून आलेला Internal SG ID
 
-resource "aws_security_group" "web" {
-  name        = "tf-web-sg"
-  description = "Allow SSH and HTTP"
-  vpc_id      = data.aws_vpc.selected.id
-
-  ingress {
-    description = "SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = [var.ssh_cidr]
-  }
-
-  ingress {
-    description = "HTTP"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = merge({ Name = "tf-web-sg" }, var.tags)
-}
-
-resource "aws_instance" "web" {
-  ami                         = var.ami_id
-  instance_type               = var.instance_type
-  subnet_id                   = var.subnet_id
-  vpc_security_group_ids      = [aws_security_group.web.id]
-  associate_public_ip_address = true
-  user_data                   = var.user_data
-  tags                        = merge({ Name = "tf-web" }, var.tags)
+  tags = merge(var.tags, {
+    Name = "${var.env}-bank-internal-server"
+  })
 }
