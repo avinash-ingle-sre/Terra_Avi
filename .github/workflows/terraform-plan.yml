@@ -21,6 +21,7 @@ jobs:
           terraform_version: '1.7.5'
 
       - name: Terraform Init
+        # आपण 'terraform' फोल्डरच्या आत गेलो आहोत म्हणून पाथ बदलला आहे
         run: terraform -chdir=terraform/envs/dev init
 
       - name: Terraform Validate
