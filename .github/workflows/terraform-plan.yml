@@ -21,6 +21,21 @@ jobs:
           terraform_version: '1.7.5'
 
       - name: Terraform Init
+        # आपण 'terraform' फोल्डरच्या आत गेलो आहोत म्हणून पाथ बदलला आहे
+        run: terraform -chdir=terraform/envs/dev init
+
+      - name: Terraform Validate
+        run: terraform -chdir=terraform/envs/dev validate
+
+      - name: Terraform Plan
+        run: terraform -chdir=terraform/envs/dev plan -no-color
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+          TF_VAR_ami_id: ${{ secrets.AMI_ID }}
+          TF_VAR_region: "ap-south-1"
+
         run: terraform -chdir=terraform/envs/dev init
 
       - name: Terraform Validate
