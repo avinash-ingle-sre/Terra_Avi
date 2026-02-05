@@ -7,25 +7,29 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "subnet_id" {
-  type = string
-}
+# आपण आता 'subnet_ids' (List) वापरतोय, म्हणून जुना 'subnet_id' काढला.
 
-variable "vpc_id" {
-  type = string
-}
-
-variable "ssh_cidr" {
-  type    = string
-  default = "0.0.0.0/0"
-}
-
-variable "user_data" {
-  type    = string
-  default = ""
+variable "env" {
+  type        = string
+  description = "Environment name (dev/prod)"
 }
 
 variable "tags" {
   type    = map(string)
   default = {}
+}
+
+variable "app_sg_id" {
+  type        = string
+  description = "Security Group ID for App Server"
+}
+
+variable "internal_sg_id" {
+  type        = string
+  description = "Security Group ID for Internal Server"
+}
+
+variable "subnet_ids" {
+  type        = list(string)
+  description = "List of public subnet IDs"
 }
